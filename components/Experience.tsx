@@ -1,14 +1,7 @@
+import Image from "next/image";
 import SectionLabel from "./SectionLabel";
 
 const experiences = [
-  {
-    title: "Founder & CEO",
-    company: "Layer 3 Labs",
-    period: "2020 — 2025",
-    description:
-      "Led a team of 15 developers, driving technical strategy, overseeing sprint planning, managing hiring processes, and fostering employee development across Web3 and gaming products.",
-    barColor: "bg-lime",
-  },
   {
     title: "AI & Automation Lead",
     company: "Dapper Labs",
@@ -16,6 +9,14 @@ const experiences = [
     description:
       "Led company-wide AI and automation initiatives to scale operations, improve efficiency, and enable new creative capabilities for officially licensed digital collectibles.",
     barColor: "bg-coral",
+  },
+  {
+    title: "Founder & CEO",
+    company: "Layer 3 Labs",
+    period: "2020 — 2025",
+    description:
+      "Led a team of 15 developers, driving technical strategy, overseeing sprint planning, managing hiring processes, and fostering employee development across Web3 and gaming products.",
+    barColor: "bg-lime",
   },
   {
     title: "Director of Community Growth",
@@ -26,20 +27,35 @@ const experiences = [
     barColor: "bg-lavender",
   },
   {
+    title: "Senior Marketing Manager",
+    company: "Amazon",
+    period: "2016 — 2018",
+    description:
+      "Managed a three-person marketing team growing a $200M+ Canadian consumer electronics business, leading email, social, on-site merchandising, SEO, and paid search programs.",
+    barColor: "bg-lime",
+  },
+  {
+    title: "Product Manager",
+    company: "Uber",
+    period: "2015",
+    description:
+      "Managed the operational relaunch of UberFamily, using pricing analysis, SQL rider data, A/B incentive testing, and partner operations to improve driver utilization and passenger trips.",
+    barColor: "bg-coral",
+  },
+  {
     title: "Captain (35D — Intelligence)",
     company: "US Army",
     period: "2009 — 2020",
     description:
       "Provided expertise in political, economic, and threat matters, identifying critical, time-sensitive intelligence information from public and proprietary sources.",
     barColor: "bg-coral",
-  },
-  {
-    title: "Senior Marketing Manager",
-    company: "Amazon",
-    period: "2016 — 2018",
-    description:
-      "Led a marketing team overseeing the growth of a $200M+ Canadian consumer electronics business, managing e-mail marketing, social media, SEO, and paid acquisition.",
-    barColor: "bg-lime",
+    media: [
+      {
+        src: "/images/army-uganda-course.jpg",
+        alt: "Jonathan Teplitsky speaking at a military decision-making process and information operations course graduation in Jinja, Uganda",
+        caption: "Course to better Uganda People's Defense Force",
+      },
+    ],
   },
 ];
 
@@ -62,9 +78,34 @@ export default function Experience() {
                     {exp.company} &middot; {exp.period}
                   </p>
                 </div>
-                <p className="text-dark text-sm leading-relaxed md:pt-1">
-                  {exp.description}
-                </p>
+                <div className="md:pt-1">
+                  <p className="text-dark text-sm leading-relaxed">
+                    {exp.description}
+                  </p>
+                  {exp.media && (
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {exp.media.map((item) => (
+                        <figure
+                          key={item.src}
+                          className="overflow-hidden border border-dark/10 bg-white"
+                        >
+                          <div className="aspect-[3/2] overflow-hidden bg-dark/5">
+                            <Image
+                              src={item.src}
+                              alt={item.alt}
+                              width={900}
+                              height={600}
+                              className="h-full w-full object-cover"
+                            />
+                          </div>
+                          <figcaption className="px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-dark/45">
+                            {item.caption}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ))}
