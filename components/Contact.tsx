@@ -35,17 +35,9 @@ export default function Contact() {
           <p className="text-dark/30 text-sm font-bold uppercase tracking-widest">
             Jonathan Teplitsky
           </p>
-          <div className="flex items-center gap-6">
-            <a
-              href="/dapper-labs-class-action"
-              className="text-dark/30 text-xs hover:text-dark/60 transition-colors"
-            >
-              Dapper Labs Class Action 2026
-            </a>
-            <p className="text-dark/20 text-xs">
-              &copy; {new Date().getFullYear()} All rights reserved.
-            </p>
-          </div>
+          <p className="text-dark/20 text-xs">
+            &copy; {new Date().getFullYear()} All rights reserved.
+          </p>
         </div>
       </footer>
     </section>
