@@ -106,8 +106,9 @@ export default function Projects() {
                       <Image
                         src={project.image}
                         alt={project.title}
-                        width={320}
-                        height={192}
+                        width={640}
+                        height={384}
+                        unoptimized
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </a>
