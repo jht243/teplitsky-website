@@ -46,7 +46,7 @@ const projects = [
     tags: ["Web3", "Enterprise"],
     barColor: "bg-coral",
     link: "https://www.layer3labs.io",
-    image: "/images/layer3labs.png",
+    image: "/images/layer3-purple.png",
     logo: "/images/layer3labs.png",
   },
   {
