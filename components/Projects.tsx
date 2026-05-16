@@ -2,7 +2,19 @@ import Image from "next/image";
 import LogoTitle from "./LogoTitle";
 import SectionLabel from "./SectionLabel";
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  period: string;
+  tags: string[];
+  barColor: string;
+  link: string | null;
+  image: string;
+  logo: string;
+  logoFit?: "contain" | "cover";
+};
+
+const projects: Project[] = [
   {
     title: "Goblintown: Rise of BiG iNC",
     description:
