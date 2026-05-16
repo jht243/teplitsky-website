@@ -1,4 +1,5 @@
 import Image from "next/image";
+import LogoTitle from "./LogoTitle";
 import SectionLabel from "./SectionLabel";
 
 const experiences = [
@@ -9,6 +10,7 @@ const experiences = [
     description:
       "Led company-wide AI and automation initiatives to scale operations, improve efficiency, and enable new creative capabilities for officially licensed digital collectibles.",
     barColor: "bg-coral",
+    logo: "/images/logos/dapper-labs.svg",
   },
   {
     title: "Founder & CEO",
@@ -17,6 +19,7 @@ const experiences = [
     description:
       "Led a team of 15 developers, driving technical strategy, overseeing sprint planning, managing hiring processes, and fostering employee development across Web3 and gaming products.",
     barColor: "bg-lime",
+    logo: "/images/layer3labs.png",
   },
   {
     title: "Director of Community Growth",
@@ -25,6 +28,7 @@ const experiences = [
     description:
       "Led the development and execution of marketing strategy, driving significant user growth and implementing innovative multi-channel marketing campaigns.",
     barColor: "bg-lavender",
+    logo: "/images/logos/horizen-labs.svg",
   },
   {
     title: "Senior Marketing Manager",
@@ -33,6 +37,7 @@ const experiences = [
     description:
       "Managed a three-person marketing team growing a $200M+ Canadian consumer electronics business, leading email, social, on-site merchandising, SEO, and paid search programs.",
     barColor: "bg-lime",
+    logo: "/images/logos/amazon.svg",
   },
   {
     title: "Product Manager",
@@ -41,6 +46,7 @@ const experiences = [
     description:
       "Managed the operational relaunch of UberFamily, using pricing analysis, SQL rider data, A/B incentive testing, and partner operations to improve driver utilization and passenger trips.",
     barColor: "bg-coral",
+    logo: "/images/logos/uber.svg",
   },
   {
     title: "Captain (35D — Intelligence)",
@@ -49,6 +55,7 @@ const experiences = [
     description:
       "Provided expertise in political, economic, and threat matters, identifying critical, time-sensitive intelligence information from public and proprietary sources.",
     barColor: "bg-coral",
+    logo: "/images/logos/us-army.svg",
     media: [
       {
         src: "/images/army-uganda-course.jpg",
@@ -71,12 +78,16 @@ export default function Experience() {
               <div className={`h-[3px] ${exp.barColor}`} />
               <div className="grid md:grid-cols-[1fr_1.5fr] gap-2 md:gap-8 py-6 md:py-8">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tight text-dark leading-tight">
-                    {exp.title}
-                  </h3>
-                  <p className="text-sm text-dark/40 mt-1">
-                    {exp.company} &middot; {exp.period}
-                  </p>
+                  <LogoTitle
+                    logoAlt={`${exp.company} logo`}
+                    logoSrc={exp.logo}
+                    title={exp.title}
+                    meta={
+                      <>
+                        {exp.company} &middot; {exp.period}
+                      </>
+                    }
+                  />
                 </div>
                 <div className="md:pt-1">
                   <p className="text-dark text-sm leading-relaxed">

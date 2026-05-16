@@ -1,3 +1,4 @@
+import LogoTitle from "./LogoTitle";
 import SectionLabel from "./SectionLabel";
 
 const education = [
@@ -6,12 +7,14 @@ const education = [
     degree: "Master of Business Administration (M.B.A.)",
     period: "2014 — 2016",
     barColor: "bg-coral",
+    logo: "/images/logos/harvard-business-school.svg",
   },
   {
     school: "Defense Language Institute Foreign Language Center",
     degree: "Bachelor of Arts (B.A.), French Studies",
     period: "2013 — 2014",
     barColor: "bg-lime",
+    logo: "/images/logos/dli.svg",
   },
 ];
 
@@ -26,9 +29,11 @@ export default function Education() {
             <div key={i}>
               <div className={`h-[3px] ${edu.barColor}`} />
               <div className="grid md:grid-cols-[1fr_1.5fr] gap-2 md:gap-8 py-6 md:py-8">
-                <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tight text-dark leading-tight">
-                  {edu.school}
-                </h3>
+                <LogoTitle
+                  logoAlt={`${edu.school} logo`}
+                  logoSrc={edu.logo}
+                  title={edu.school}
+                />
                 <div className="md:pt-1">
                   <p className="text-dark text-sm">{edu.degree}</p>
                   <p className="text-dark/30 text-sm mt-1">{edu.period}</p>

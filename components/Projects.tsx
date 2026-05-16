@@ -1,4 +1,5 @@
 import Image from "next/image";
+import LogoTitle from "./LogoTitle";
 import SectionLabel from "./SectionLabel";
 
 const projects = [
@@ -11,6 +12,8 @@ const projects = [
     barColor: "bg-lavender",
     link: "https://play.google.com/store/apps/details?id=com.OdysseyGaming.GoblinTown&hl=en",
     image: "/images/goblintown-mobile.webp",
+    logo: "/images/goblintown-icon.webp",
+    logoFit: "cover",
   },
   {
     title: "Escape Goblintown",
@@ -21,6 +24,7 @@ const projects = [
     barColor: "bg-coral",
     link: "https://www.roblox.com/games/18100828076/Escape-Goblintown",
     image: "/images/escape-goblintown.webp",
+    logo: "/images/logos/roblox.svg",
   },
   {
     title: "STYR Trade",
@@ -31,6 +35,8 @@ const projects = [
     barColor: "bg-lime",
     link: "https://www.instagram.com/styrtrade/",
     image: "/images/styr-trade.webp",
+    logo: "/images/styr-trade.webp",
+    logoFit: "cover",
   },
   {
     title: "Layer III Platform",
@@ -41,6 +47,7 @@ const projects = [
     barColor: "bg-coral",
     link: "https://www.layer3labs.io",
     image: "/images/layer3labs.png",
+    logo: "/images/layer3labs.png",
   },
   {
     title: "Bowlero LBC Awards",
@@ -51,6 +58,7 @@ const projects = [
     barColor: "bg-lavender",
     link: null,
     image: "/images/bowlero.jpg",
+    logo: "/images/logos/bowlero.svg",
   },
 ];
 
@@ -66,22 +74,27 @@ export default function Projects() {
               <div className={`h-[3px] ${project.barColor}`} />
               <div className="grid md:grid-cols-[1fr_1.5fr] gap-2 md:gap-8 py-6 md:py-8">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tight text-dark leading-tight">
-                    {project.link ? (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-coral transition-colors"
-                      >
-                        {project.title}
-                      </a>
-                    ) : (
-                      project.title
-                    )}
-                  </h3>
-                  <p className="text-sm text-dark/40 mt-1">{project.period}</p>
-                  <div className="flex flex-wrap gap-2 mt-3">
+                  <LogoTitle
+                    logoAlt={`${project.title} logo`}
+                    logoFit={project.logoFit}
+                    logoSrc={project.logo}
+                    meta={project.period}
+                    title={
+                      project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-coral transition-colors"
+                        >
+                          {project.title}
+                        </a>
+                      ) : (
+                        project.title
+                      )
+                    }
+                  />
+                  <div className="ml-[60px] md:ml-16 flex flex-wrap gap-2 mt-3">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
